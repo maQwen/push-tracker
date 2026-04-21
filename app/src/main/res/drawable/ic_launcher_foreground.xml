@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    
+    <!-- Abstract background with gradient circles -->
+    <group android:scaleX="0.8" android:scaleY="0.8" android:pivotX="54" android:pivotY="54">
+        <!-- Large circle -->
+        <path
+            android:fillColor="#6200EE"
+            android:pathData="M54,30 m-20,0 a20,20 0 1,1 40,0 a20,20 0 1,1 -40,0" />
+        
+        <!-- Medium circle offset -->
+        <path
+            android:fillColor="#03DAC5"
+            android:pathData="M70,50 m-15,0 a15,15 0 1,1 30,0 a15,15 0 1,1 -30,0" />
+        
+        <!-- Small circle -->
+        <path
+            android:fillColor="#BB86FC"
+            android:pathData="M40,60 m-12,0 a12,12 0 1,1 24,0 a12,12 0 1,1 -24,0" />
+        
+        <!-- Notification bell abstract shape -->
+        <path
+            android:fillColor="#FFFFFF"
+            android:pathData="M54,45 C50,45 47,48 47,52 L47,60 L43,64 L65,64 L61,60 L61,52 C61,48 58,45 54,45 Z M54,70 C51,70 49,72 49,74 C49,76 51,78 54,78 C57,78 59,76 59,74 C59,72 57,70 54,70 Z" />
+    </group>
+</vector>
