@@ -20,6 +20,16 @@ android {
         }
     }
 
+    signingConfigs {
+        create("release") {
+            // Значения будут получены из переменных окружения (GitHub Secrets)
+            storeFile = file(System.getenv("KEYSTORE_PATH") ?: "keystore/release.keystore")
+            storePassword = System.getenv("KEYSTORE_PASSWORD") ?: ""
+            keyAlias = System.getenv("KEY_ALIAS") ?: ""
+            keyPassword = System.getenv("KEY_PASSWORD") ?: ""
+        }
+    }
+
     buildTypes {
         release {
             isMinifyEnabled = false
@@ -27,6 +37,7 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            signingConfig = signingConfigs.getByName("release")
         }
     }
     compileOptions {
