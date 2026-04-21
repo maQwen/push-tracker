@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Push Notifier</string>
+    <string name="notification_access_title">Notification Access Required</string>
+    <string name="notification_access_description">To capture notifications, please grant notification access permission in system settings.</string>
+    <string name="grant_permission">Grant Permission</string>
+    <string name="no_notifications">No notifications yet</string>
+    <string name="clear_all">Clear All</string>
+</resources>
