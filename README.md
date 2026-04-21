@@ -59,11 +59,43 @@ cd push-logger
 
 ### 2. Сборка приложения
 
+#### Отладочная версия (Debug)
+
 ```bash
 ./gradlew assembleDebug
 ```
 
 APK файл будет создан в `app/build/outputs/apk/debug/app-debug.apk`
+
+#### Релизная версия (Release) с подписью
+
+Для сборки подписанной релизной версии необходимо настроить переменные окружения:
+
+1. **Создайте Keystore** (если еще не создан):
+   ```bash
+   keytool -genkey -v -keystore release.keystore -alias your_alias -keyalg RSA -keysize 2048 -validity 10000
+   ```
+
+2. **Настройте GitHub Secrets** в настройках репозитория:
+   - `KEYSTORE_BASE64` - Base64 закодированный файл keystore (для CI/CD)
+     ```bash
+     base64 release.keystore | tr -d '\n'
+     ```
+   - `KEYSTORE_PASSWORD` - пароль от keystore
+   - `KEY_ALIAS` - алиас ключа
+   - `KEY_PASSWORD` - пароль от ключа
+
+3. **Соберите релизную версию локально**:
+   ```bash
+   export KEYSTORE_PATH=./release.keystore
+   export KEYSTORE_PASSWORD=your_keystore_password
+   export KEY_ALIAS=your_alias
+   export KEY_PASSWORD=your_key_password
+   
+   ./gradlew assembleRelease
+   ```
+
+Подписанный APK файл будет создан в `app/build/outputs/apk/release/app-release.apk`
 
 ### 3. Установка на устройство
 
